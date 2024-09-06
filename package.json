@@ -23,6 +23,7 @@
     "@nestjs/bull": "^10.2.1",
     "@nestjs/common": "^10.0.0",
     "@nestjs/core": "^10.0.0",
+    "@nestjs/event-emitter": "^2.0.4",
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/schedule": "^4.1.0",
     "@types/cookie-parser": "^1.4.7",

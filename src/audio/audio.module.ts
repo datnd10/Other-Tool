@@ -2,6 +2,7 @@ import { BullModule } from '@nestjs/bull';
 import { Module } from '@nestjs/common';
 import { AudioController } from './audio.controller';
 import { AudioProcessor } from './audio.processor';
+import { AudioConvertedListener } from './audio-convert-event';
 
 @Module({
     imports: [
@@ -10,6 +11,6 @@ import { AudioProcessor } from './audio.processor';
         }),
     ],
     controllers: [AudioController],
-    providers: [AudioProcessor],
+    providers: [AudioProcessor, AudioConvertedListener],
 })
 export class AudioModule { }
