@@ -2,6 +2,8 @@ import { Controller, Get, HttpStatus, ParseFilePipeBuilder, Post, UploadedFile, 
 import { AppService } from './app.service';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
+import { UserEntity } from './user.entity';
+import { User } from './user.decorator';
 
 @Controller()
 export class AppController {
@@ -32,5 +34,14 @@ export class AppController {
   }))
   uploadFilePNG(@UploadedFile(new ParseFilePipeBuilder().addFileTypeValidator({ fileType: 'png' }).addMaxSizeValidator({ maxSize: 1024 * 1024 }).build({ errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY })) file: Express.Multer.File) {
     console.log(file);
+  }
+
+  @Get('/user/:id')
+  findOne(
+    @User()
+    user: UserEntity,
+  ) {
+    console.log(user);
+    return user;
   }
 }
